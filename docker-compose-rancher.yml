@@ -1,0 +1,18 @@
+
+version: '3'                                                                                                                                                                 
+services:                                                                                                                                                                    
+  rancher:                                                                                                                                                                   
+    image: rancher/rancher:latest                                                                                                                                            
+    # network_mode: "host"                                                                                                                                                   
+    privileged: true                                                                                                                                                         
+    restart: unless-stopped                                                                                                                                                  
+    container_name: rancher-ui                                                                                                                                               
+    ports:                                                                                                                                                                   
+      - 8033:80                                                                                                                                                              
+      - 8044:443                                                                                                                                                             
+    volumes:                                                                                                                                                                 
+      - rancher-data:/var/lib/rancher                                                                                                                                        
+    environment:                                                                                                                                                             
+      TZ: Asia/Shanghai                                                                                                                                                      
+volumes:                                                                                                                                                                     
+  rancher-data:
